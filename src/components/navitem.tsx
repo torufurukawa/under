@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 export function NavItem(props: NavItemProps) {
   const pathname = usePathname();
-  const active = 'text-blue-500';
+  const active = 'text-sky-600';
   const inactive = 'text-slate-500';
 
   return (
