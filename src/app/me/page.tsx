@@ -21,7 +21,7 @@ function Card({ children }: { children: React.ReactNode }) {
 
 function Item({ label, val }: { label: string; val: string | number }) {
   return (
-    <div className="flex justify-between border-t first:border-0 py-1.5 text-sm -mx-4 px-4">
+    <div className="flex justify-between border-t first:border-0 py-1.5 text -mx-4 px-4">
       <div>{label}</div>
       <div className="flex justify-end">
         <div>{val}</div>
