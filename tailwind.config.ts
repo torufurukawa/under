@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -16,5 +16,6 @@ const config: Config = {
     },
   },
   plugins: [],
-}
-export default config
+  safelist: ['h-2', 'h-10', 'h-5', 'h-9', 'h-8', 'h-0'],
+};
+export default config;
