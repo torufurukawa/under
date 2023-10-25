@@ -30,7 +30,7 @@ function Card({
   title: string;
 }) {
   return (
-    <div className="mt-3 mx-4 rounded-lg p-2   text-slate-800 bg-white border border-slate-100">
+    <div className="mt-3 mx-4 rounded-lg p-2   text-slate-800 bg-white drop-shadow-md">
       <div id="title" className="grid place-content-center">
         {title}
       </div>
