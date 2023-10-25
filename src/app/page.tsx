@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useDrinkRecord } from '@/lib/drinkrecords';
+import { getToday } from '@/lib/dates';
 
 const MAX_DRINKS = 12;
 
@@ -39,7 +40,7 @@ function Summary() {
 }
 
 function UpDownCounter() {
-  const [drinks, setDrinks] = useState(0);
+  const [drinks, setDrinks] = useDrinkRecord(getToday());
 
   function increment() {
     if (drinks < MAX_DRINKS) {
