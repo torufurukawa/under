@@ -16,6 +16,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  safelist: ['h-2', 'h-10', 'h-5', 'h-9', 'h-8', 'h-0'],
+  safelist: ['h-2', 'h-3', 'h-10', 'h-5', 'h-9', 'h-8', 'h-0'],
 };
 export default config;

@@ -1,3 +1,9 @@
+'use client';
+import { useDrinkRecord } from '@/lib/drinkrecords';
+import { getToday } from '@/lib/dates';
+
+const MAX_DRINKS = 12;
+
 export default function Page() {
   return (
     <main>
@@ -34,18 +40,40 @@ function Summary() {
 }
 
 function UpDownCounter() {
+  const [drinks, setDrinks] = useDrinkRecord(getToday());
+
+  function increment() {
+    if (drinks < MAX_DRINKS) {
+      setDrinks(drinks + 1);
+    }
+  }
+  function decrement() {
+    if (0 < drinks) {
+      setDrinks(drinks - 1);
+    }
+  }
+
   return (
-    <div className="flex flex-row justify-center mt-4 w-full gap-8 items-center text-slate-600">
-      <CounterButton>-</CounterButton>
-      <CounterIndidicator>0</CounterIndidicator>
-      <CounterButton>+</CounterButton>
+    <div className="flex flex-row justify-center mt-4 w-full gap-10 items-center text-slate-600">
+      <CounterButton onClick={decrement}>-</CounterButton>
+      <CounterIndidicator>{drinks}</CounterIndidicator>
+      <CounterButton onClick={increment}>+</CounterButton>
     </div>
   );
 }
 
-function CounterButton({ children }: { children: React.ReactNode }) {
+function CounterButton({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
   return (
-    <div className="text-3xl bg-slate-100 rounded-full w-10 h-10 text-center">
+    <div
+      className="text-4xl bg-slate-100 rounded-full w-12 h-12 text-center py-0.5"
+      onClick={onClick}
+    >
       {children}
     </div>
   );
@@ -53,7 +81,7 @@ function CounterButton({ children }: { children: React.ReactNode }) {
 
 function CounterIndidicator({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-3xl font-bold bg-slate-100 px-4 h-12 rounded-lg text-center flex items-center justify-center">
+    <div className="text-4xl font-bold bg-slate-100 px-4 h-14 rounded-lg text-center flex items-center justify-center">
       {children}
     </div>
   );

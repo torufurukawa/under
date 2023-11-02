@@ -13,7 +13,7 @@ export default function Page() {
 
 function Card({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-3 mx-4 rounded-lg pl-3 pr-2   text-slate-700 bg-white border border-slate-100">
+    <div className="mt-3 mx-4 rounded-lg pl-3 pr-2   text-slate-700 bg-white drop-shadow-md">
       {children}
     </div>
   );
@@ -21,7 +21,7 @@ function Card({ children }: { children: React.ReactNode }) {
 
 function Item({ label, val }: { label: string; val: string | number }) {
   return (
-    <div className="flex justify-between border-t first:border-0 py-1.5 text-lg -mx-4 px-4">
+    <div className="flex justify-between border-t first:border-0 py-1.5 text-lg -mx-2 px-4">
       <div>{label}</div>
       <div className="flex justify-end">
         <div>{val}</div>

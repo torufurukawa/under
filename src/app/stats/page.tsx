@@ -1,15 +1,12 @@
+'use client';
+import dayjs from 'dayjs';
 import { BarChart } from '../../components/barchart';
+import { useWeeklyDrinkRecords } from '@/lib/drinkrecords';
 
 export default function Page() {
-  const weeklyTrend = [
-    { day: 'Sun', val: 2 },
-    { day: 'Mon', val: 10 },
-    { day: 'Tue', val: 9 },
-    { day: 'Wed', val: 5 },
-    { day: 'Thu', val: 8 },
-    { day: 'Fri', val: 8 },
-    { day: 'Sat', val: 0 },
-  ];
+  const today = dayjs();
+  const since = today.subtract(6, 'day');
+  const weeklyTrend = useWeeklyDrinkRecords(since);
 
   return (
     <main>
@@ -30,7 +27,7 @@ function Card({
   title: string;
 }) {
   return (
-    <div className="mt-3 mx-4 rounded-lg p-2   text-slate-800 bg-white border border-slate-100">
+    <div className="mt-3 mx-4 rounded-lg p-2   text-slate-800 bg-white drop-shadow-md">
       <div id="title" className="grid place-content-center">
         {title}
       </div>
@@ -39,8 +36,14 @@ function Card({
   );
 }
 
-function WeeklyChart({ trend }: { trend: { day: string; val: Number }[] }) {
-  const data = trend.map((v) => ({ label: v.day, val: v.val }));
+function WeeklyChart({
+  trend,
+}: {
+  trend: { day: string; val: number | null }[];
+}) {
+  const data = trend.map((v) => {
+    return { label: v.day, val: v.val };
+  });
 
   return <BarChart data={data} />;
 }

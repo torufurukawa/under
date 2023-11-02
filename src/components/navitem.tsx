@@ -14,9 +14,9 @@ export function NavItem(props: NavItemProps) {
     >
       <div className="w-10 h-10 grid place-items-center">
         <div>
-          <props.Icon className="h-4 w-4" />
+          <props.Icon className="h-6 w-6" />
         </div>
-        <div className="text-[10px]">{props.label}</div>
+        <div className="text-xs">{props.label}</div>
       </div>
     </Link>
   );
