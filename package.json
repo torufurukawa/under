@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@vercel/postgres": "^0.5.1",
     "dayjs": "^1.11.10",
     "next": "^14.0.1",
     "react": "^18",
